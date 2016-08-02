@@ -9,12 +9,12 @@ var Types = keystone.Field.Types;
 var Joke = new keystone.List('Joke');
 
 Joke.add({
-	jokeType: { type: Types.Select, options: 'One-Liner, QandA', initial: true, required: true },
-	joke: {type: String, dependsOn: {jokeType: ['One-Liner']}, initial: true, required: true },
-	jokeQuestion: {type: String, dependsOn: {jokeType: ['QandA']}, initial: true, required: true },
-	jokeAnswer: {type: String, dependsOn: {jokeType: ['QandA']}, initial: true, required: true },
+	time: { type: Types.Datetime, default: Date.now, noedit: true, index: true },
+	jokeType: { type: Types.Select, options: 'One-Liner, Q-and-A', initial: true, required: true },
+	joke: {type: String, initial: true, required: true },
+	jokeAnswer: {type: String, dependsOn: {jokeType: 'Q-and-A' }, initial: true },
 });
 
 
-Joke.defaultColumns = 'joke type, joke';
+Joke.defaultColumns = 'time, jokeType, joke, jokeAnswer';
 Joke.register();
