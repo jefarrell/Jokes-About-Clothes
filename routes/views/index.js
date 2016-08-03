@@ -1,4 +1,5 @@
-var keystone = require('keystone');
+var keystone = require('keystone'),
+	Joke = keystone.list('Joke');
 
 exports = module.exports = function (req, res) {
 
@@ -9,6 +10,16 @@ exports = module.exports = function (req, res) {
 	// item in the header navigation.
 	locals.section = 'home';
 
-	// Render the view
+
+	var randJoke = Joke.model.aggregate([{$sample: {size:1}}], function(err,result){
+		console.log(result);
+		locals.result = result
+	})
+
+	// var Jokes = Joke.model.find().exec(function(err,posts) {
+	// 	console.log(Object.keys(posts).length);
+	// 	locals.posts = posts;
+	// });
+
 	view.render('index');
 };

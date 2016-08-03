@@ -2,8 +2,6 @@ include ../mixins/flash-messages
 
 doctype html
 html
-
-	//- HTML HEADER
 	head
 		meta(charset="utf-8")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -41,34 +39,9 @@ html
 			p Daily jokes on clothing, fashion and culture
 			//- Customise your site's navigation by changing the navLinks Array in ./routes/middleware.js
 			//- ... or completely change this header to suit your design.
-			
-			//- div(role="navigation").navbar.navbar-default
-			//- 	.container-fluid
-			//- 		.navbar-header
-			//- 			button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-			//- 				span.sr-only Toggle navigation
-			//- 				span.icon-bar
-			//- 				span.icon-bar
-			//- 				span.icon-bar
-			//- 			a.navbar-brand(href='/') Jokes_About_Clothes
-			//- 		.collapse.navbar-collapse
-			//- 			ul.nav.navbar-nav.navbar-left
-			//- 				each link in navLinks
-			//- 					li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
-			//- 			ul.nav.navbar-nav.navbar-right
-			//- 				if user
-			//- 					if user.canAccessKeystone
-			//- 						li: a(href='/keystone') Open Keystone
-			//- 					li: a(href='/keystone/signout') Sign Out
-			//- 				else
-			//- 					li: a(href='/keystone/signin') Sign In
 
 		//- BODY
 		#body
-
-			//- NOTE:
-			//- There is no .container wrapping class around body blocks to allow more flexibility in design.
-			//- Remember to include it in your templates when you override the intro and content blocks!
 
 			//- The Intro block appears above flash messages (used for temporary information display)
 			block intro
@@ -85,24 +58,13 @@ html
 		.container: #footer
 			p
 				a(href='/keystone').btn.btn-lg.btn-primary Open the Admin UI
-			//- You don't _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it!
 			p Jokes about clothes is run by  <a href="http://emilyspivack.info/" target="_blank">Emily Spivack</a>.
 			p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor mattis ex non malesuada. Fusce quis pellentesque dolor. Nunc hendrerit tempus ligula sit amet vehicula. Donec at enim sit amet purus lobortis euismod id in arcu. Ut vulputate libero at purus malesuada, vitae viverra sem commodo. Sed porttitor consequat nisl, ut gravida sem auctor id. Morbi venenatis hendrerit dolor, non posuere ipsum pulvinar at.
 
 
 		//- JAVASCRIPT
-
-		//- jQuery 1.11.3 is included by default, and required by both Bootstrap
-		//- and the KeystoneJS Content Editor. If you are not targeting IE8,
-		//- you can upgrade to 2.1.4 (also bundled) for better performance.
 		script(src='/js/jquery/jquery-1.11.3.min.js')
-
-		//- Customise which Bootstrap javascript files are served by including
-		//- them specifically here, instead of bootstrap-3.3.5.min.js
 		script(src='/js/bootstrap/bootstrap-3.3.5.min.js')
-
-		//- The KeystoneJS Content Editor provides support for ks-editable data attributes,
-		//- which generate links to edit content for users who can access Keystone
 		if user && user.canAccessKeystone
 			script(src='/keystone/js/content/editor.js')
 
