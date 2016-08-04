@@ -11,15 +11,17 @@ exports = module.exports = function (req, res) {
 	locals.section = 'home';
 
 
-	var randJoke = Joke.model.aggregate([{$sample: {size:1}}], function(err,result){
-		console.log(result);
-		locals.result = result
-	})
-
-	// var Jokes = Joke.model.find().exec(function(err,posts) {
-	// 	console.log(Object.keys(posts).length);
-	// 	locals.posts = posts;
+	// var randJoke = Joke.model.aggregate([{$sample: {size:1}}], function(err,result){
+	// 	console.log(result);
+	// 	locals.result = result
+	// });
+	var randJoke = Joke.model.aggregate([{$sample: {size:1}}],function(err,res){
+		view.render('index', {result: res});
+	});
+	// var Jokes = Joke.model.find().exec(function(err,result) {
+	// 	console.log(Object.keys(result).length);
+	// 	locals.result = result;
 	// });
 
-	view.render('index');
+	// view.render('index', {result: randJoke});
 };

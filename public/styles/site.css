@@ -5834,3 +5834,25 @@ button.close {
   display: block;
   max-width: 100%;
   height: auto; }
+
+.container .jumbotron,
+.container-fluid .jumbotron {
+  border-radius: 0px; }
+
+.jumbotron {
+  background-color: #FFF;
+  border: 2px solid black; }
+
+.jumbotron:after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  border: 1px solid red;
+  z-index: -1; }
+
+.jumbotron {
+  width: 500px;
+  height: 500px; }

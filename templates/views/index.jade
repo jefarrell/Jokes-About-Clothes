@@ -5,20 +5,23 @@ block content
 	.container: .jumbotron
 
 		p Imagine super sweet calendar here!
-		script.
-			console.log("fuck you");
 
 		- var single = 'One-Liner'
 		- var double = 'Q-and-A'
 
 		div: .calendarContainer
 				.calendar
+
 					if result[0].jokeType === single
 						p YEAH!
+						h2 #{result[0].joke}
 					else if result[0].jokeType === double
-						p NO!
+						p NO! 
+						h2 Q:
+						| #{result[0].joke}
+						h2 A: 
+						| #{result[0].jokeAnswer}
 					else
 						p FUCK
-						//-h2 #{result[0].joke}
 			
 
