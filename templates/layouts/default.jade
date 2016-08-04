@@ -24,23 +24,16 @@ html
 			script(src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js")
 		//-[endif]
 
-		//- Include template-specific stylesheets by extending the css block
-		block css
 
-		//- Add any other template-specific HEAD tags by extending the head block
+		block css
 		block head
 
-	//- HTML BODY
 	body
 
-		//- HEADER
 		#header: .container
 			h1 Jokes About Clothes
 			p Daily jokes on clothing, fashion and culture
-			//- Customise your site's navigation by changing the navLinks Array in ./routes/middleware.js
-			//- ... or completely change this header to suit your design.
 
-		//- BODY
 		#body
 
 			//- The Intro block appears above flash messages (used for temporary information display)
@@ -50,11 +43,17 @@ html
 			//- validation errors, success messages, etc.
 			+flash-messages(messages)
 
-			//- The content block should contain the body of your template's content
-			block content
-			//- block submission
 
-		//- FOOTER
+			.container
+				block content
+				button(class='btn' id='refreshButton', data-action='refresh').
+					New Joke!
+			//- block submission
+			//- script.
+			//- 	var colz = ['blue','red','green','black']
+			//- 	var randz = Math.floor(Math.random()*3+1);
+			//- 	document.body.style.background = colz[randz];
+
 		.container: #footer
 			p
 				a(href='/keystone').btn.btn-lg.btn-primary Open the Admin UI
@@ -62,13 +61,11 @@ html
 			p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor mattis ex non malesuada. Fusce quis pellentesque dolor. Nunc hendrerit tempus ligula sit amet vehicula. Donec at enim sit amet purus lobortis euismod id in arcu. Ut vulputate libero at purus malesuada, vitae viverra sem commodo. Sed porttitor consequat nisl, ut gravida sem auctor id. Morbi venenatis hendrerit dolor, non posuere ipsum pulvinar at.
 
 
-		//- JAVASCRIPT
+
 		script(src='/js/jquery/jquery-1.11.3.min.js')
 		script(src='/js/bootstrap/bootstrap-3.3.5.min.js')
+		script(src='/js/script.js')
 		if user && user.canAccessKeystone
 			script(src='/keystone/js/content/editor.js')
 
-		//- Add scripts that are globally required by your site here.
-
-		//- Include template-specific javascript files by extending the js block
 		block js

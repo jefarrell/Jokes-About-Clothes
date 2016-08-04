@@ -10,16 +10,14 @@ exports = module.exports = function (req, res) {
 	// item in the header navigation.
 	locals.section = 'home';
 
-
-	// var randJoke = Joke.model.aggregate({$sample: {size:1}}, function(err,result){
-	// 	console.log(result);
-	// 	locals.result = result
+	var randJoke = Joke.model.aggregate([{$sample: {size:1}}],function(err,res){
+		view.render('index', {result: res});
+	});
+	console.log("yah");
+	// var Jokes = Joke.model.find().exec(function(err,result) {
+	// 	console.log(Object.keys(result).length);
+	// 	locals.result = result;
 	// });
 
-	var Jokes = Joke.model.find().exec(function(err,result) {
-		console.log(Object.keys(result).length);
-		locals.result = result;
-	});
-
-	view.render('index');
+	// view.render('index', {result: randJoke});
 };

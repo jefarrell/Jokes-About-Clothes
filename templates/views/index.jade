@@ -3,14 +3,13 @@ extends ../layouts/default
 
 block content
 	.container: .jumbotron
-
 		p Imagine super sweet calendar here!
 
 		- var single = 'One-Liner'
 		- var double = 'Q-and-A'
 
 		div: .calendarContainer
-				.calendar
+				#blah.container
 
 					if result[0].jokeType === single
 						p YEAH!
@@ -23,5 +22,9 @@ block content
 						| #{result[0].jokeAnswer}
 					else
 						p FUCK
-			
+					//- script.
+					//- 	var cols = ['blue','red','green','black']
+					//- 	var tester = document.getElementById('blah');
+					//- 	var randy = Math.floor(Math.random()*3+1);
+					//- 	tester.style.backgroundColor = cols[randy];
 
