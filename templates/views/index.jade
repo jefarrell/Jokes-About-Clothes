@@ -2,26 +2,33 @@ extends ../layouts/default
 
 
 block content
-	.container: .jumbotron
+	#contentwrap.container: .jumbotron
 		p Imagine super sweet calendar here!
 
 		- var single = 'One-Liner'
 		- var double = 'Q-and-A'
 
 		div: .calendarContainer
-				#blah.container
+				#jokeContainer.container
 
 					if result[0].jokeType === single
-						p YEAH!
+						p Single
 						h2 #{result[0].joke}
 					else if result[0].jokeType === double
-						p NO! 
+						p Double 
 						h2 Q:
 						| #{result[0].joke}
 						h2 A: 
 						| #{result[0].jokeAnswer}
 					else
 						p FUCK
+
+
+
+
+
+
+
 					//- script.
 					//- 	var cols = ['blue','red','green','black']
 					//- 	var tester = document.getElementById('blah');

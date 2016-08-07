@@ -5844,3 +5844,6 @@ button.close {
   height: 500px;
   background-color: #FFF;
   border: 2px solid black; }
+
+#contentwrap {
+  padding: 0; }
