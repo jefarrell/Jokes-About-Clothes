@@ -6,7 +6,5 @@ exports = module.exports = function (req, res) {
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 
-	var randJoke = Joke.model.aggregate([{$sample: {size:1}}],function(err,res){
-		view.render('index', {result: res});
-	});
+	view.render('index');
 };

@@ -3,35 +3,7 @@ extends ../layouts/default
 
 block content
 	#contentwrap.container: .jumbotron
-		p Imagine super sweet calendar here!
-
-		- var single = 'One-Liner'
-		- var double = 'Q-and-A'
 
 		div: .calendarContainer
 				#jokeContainer.container
-
-					if result[0].jokeType === single
-						p Single
-						h2 #{result[0].joke}
-					else if result[0].jokeType === double
-						p Double 
-						h2 Q:
-						| #{result[0].joke}
-						h2 A: 
-						| #{result[0].jokeAnswer}
-					else
-						p FUCK
-
-
-
-
-
-
-
-					//- script.
-					//- 	var cols = ['blue','red','green','black']
-					//- 	var tester = document.getElementById('blah');
-					//- 	var randy = Math.floor(Math.random()*3+1);
-					//- 	tester.style.backgroundColor = cols[randy];
 

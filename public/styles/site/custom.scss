@@ -13,3 +13,15 @@
 #contentwrap {
 	padding: 0;
 }
+
+#revealButton {
+	color: #FFF;
+	background-color: #000;
+	border: 1px solid #000;
+}
+
+#revealButton:hover {
+	color: #000;
+	background-color: #FFF;
+	border: 1px dashed #000;
+}

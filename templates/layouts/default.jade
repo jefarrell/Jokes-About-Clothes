@@ -1,5 +1,4 @@
 include ../mixins/flash-messages
-
 doctype html
 html
 	head
@@ -23,7 +22,9 @@ html
 			script(src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js")
 			script(src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js")
 		//-[endif]
-
+		script(src='/js/jquery/jquery-1.11.3.min.js')
+		script(src='/js/bootstrap/bootstrap-3.3.5.min.js')
+		script(src='/js/script.js')
 
 		block css
 		block head
@@ -35,37 +36,28 @@ html
 			p Daily jokes on clothing, fashion and culture
 
 		#body
-
-			//- The Intro block appears above flash messages (used for temporary information display)
-			block intro
-
-			//- Flash messages allow you to display once-off status messages to users, e.g. form
-			//- validation errors, success messages, etc.
-			+flash-messages(messages)
-
-
 			.container
 				block content
-				button(class='btn' id='refreshButton').
-					New Joke!
-			//- block submission
-			//- script.
-			//- 	var colz = ['blue','red','green','black']
-			//- 	var randz = Math.floor(Math.random()*3+1);
-			//- 	document.body.style.background = colz[randz];
+				button#refreshButton.btn New Joke!
+			.container
+				h3 Submit your Own Joke!
+				div.container
+					select#submitType.dropdown-toggle.btn.btn-default
+						option(value=0 selected disabled) Joke Type
+						option(value=1) One-Liner
+						option(value=2) Question and Answer
+					div#formContainer.container
+				
 
 		.container: #footer
-			p
-				a(href='/keystone').btn.btn-lg.btn-primary Open the Admin UI
+			
+			a(href='/keystone').btn.btn-lg.btn-primary Open the Admin UI
 			p Jokes about clothes is run by  <a href="http://emilyspivack.info/" target="_blank">Emily Spivack</a>.
 			p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor mattis ex non malesuada. Fusce quis pellentesque dolor. Nunc hendrerit tempus ligula sit amet vehicula. Donec at enim sit amet purus lobortis euismod id in arcu. Ut vulputate libero at purus malesuada, vitae viverra sem commodo. Sed porttitor consequat nisl, ut gravida sem auctor id. Morbi venenatis hendrerit dolor, non posuere ipsum pulvinar at.
 
 
 
-		script(src='/js/jquery/jquery-1.11.3.min.js')
-		script(src='/js/bootstrap/bootstrap-3.3.5.min.js')
-		script(src='/js/script.js')
+
 		if user && user.canAccessKeystone
 			script(src='/keystone/js/content/editor.js')
 
-		block js
