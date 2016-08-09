@@ -38,7 +38,7 @@ $(document).ready(function() {
 			.append(
 				$('<div>')
 				.append(
-					$('<h2>Q: </h2>' + '<p>' + quest + '</p>')
+					$('<h2>' + quest + '</h2>')
 					)
 				.append(
 					$('<input/>').attr({
@@ -52,7 +52,7 @@ $(document).ready(function() {
 		$('#revealButton').on('click', function(){
 			$(jokeDest)
 				.append(
-					$('<h2>A: </h2>' + '<p>' + ans + '</p>')
+					$('<h2>' + ans + '</h2>')
 					)
 			$('#revealButton').remove();
 		})

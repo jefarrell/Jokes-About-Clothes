@@ -14,7 +14,7 @@ h1 {
 }
 
 .jumbotron {
-	width: 500px;
+	width: 600px;
 	height: 500px;
 	background-color: #FFF;
 	border: 6px solid $primary-color;
@@ -41,9 +41,6 @@ h1 {
 	border: 3px dashed $primary-color;
 }
 
-#formContainer {
-	padding-left: 0;
-}
 
 .form-control {
 	width: 60%;
@@ -71,4 +68,51 @@ h1 {
 
 #submitTitle:hover {
 	font-weight: 700;
+}
+
+///////////////////////////////////////////////////
+#calWrap {
+	margin: 3em 0 3em 3em;
+	background-color: pink;
+	-webkit-perspective: 1200px;
+	position: relative;
+}
+
+
+.jumbotron {
+	transform: rotate3d(1, -1, 1, 20deg);
+	position: absolute;
+	z-index: 100;
+	display: inline-block;
+}
+
+.right {
+	width: 20px;
+	height: 500px;
+	background-color: $primary-color;
+	display: inline-block;
+	position: absolute;
+	float:right;
+	-webkit-transform: skewY(30deg);
+    -moz-transform: skewY(-30deg);
+    right: -25px;
+    top: 0;
+}
+
+.left{
+	-webkit-transform: skewY(30deg);
+	background-color: red;
+}
+///////////////////////////////////////////////////
+
+//
+//	Things to help deal with calendar positioning
+//
+#refreshButton {
+	margin-top: 500px;
+}
+
+#formContainer {
+	padding-left: 0;
+	position: relative;
 }
