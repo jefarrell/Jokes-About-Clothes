@@ -1,3 +1,13 @@
+$primary-color: #4F4F4F;
+
+body {
+	font-family: 'Lora', serif;
+}
+
+h1 {
+	font-weight: 700;
+}
+
 .container .jumbotron,
   .container-fluid .jumbotron {
     border-radius: 0px; 
@@ -7,21 +17,58 @@
 	width: 500px;
 	height: 500px;
 	background-color: #FFF;
-	border: 2px solid black;
+	border: 6px solid $primary-color;
 }
 
 #contentwrap {
 	padding: 0;
 }
 
-#revealButton {
+#revealButton, #refreshButton, #submitButton {
 	color: #FFF;
-	background-color: #000;
-	border: 1px solid #000;
+	background-color: $primary-color;
+	border: 3px solid $primary-color;
 }
 
-#revealButton:hover {
-	color: #000;
+#submitButton {
+	margin-top: 1em;
+	display: block;
+}
+
+#revealButton:hover, #refreshButton:hover, #submitButton:hover {
+	color: $primary-color;
 	background-color: #FFF;
-	border: 1px dashed #000;
+	border: 3px dashed $primary-color;
+}
+
+#formContainer {
+	padding-left: 0;
+}
+
+.form-control {
+	width: 60%;
+	margin-top: 1em;
+}
+
+.form-control, #revealButton,
+	#refreshButton, #submitButton {
+		border-radius: 0px;
+}
+
+#name, #email {
+	// Yeahhhhh not that great
+	width: 29.4%;
+	display: inline-block;
+}
+
+#name {
+	margin: 1em 0.5em 0 0;
+}
+
+#email {
+	margin: 1em 0 0 0.5em;
+}
+
+#submitTitle:hover {
+	font-weight: 700;
 }

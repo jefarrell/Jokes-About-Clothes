@@ -41,10 +41,14 @@ $(document).ready(function() {
 					$('<h2>Q: </h2>' + '<p>' + quest + '</p>')
 					)
 				.append(
-					$('<input type="button" id="revealButton" value="Reveal!" />')
+					$('<input/>').attr({
+						type:'button',
+						id:'revealButton',
+						class:'btn',
+						value:'Reveal!'})
 					)
 				);
-			
+
 		$('#revealButton').on('click', function(){
 			$(jokeDest)
 				.append(
@@ -54,45 +58,41 @@ $(document).ready(function() {
 		})
 	}
 
-	$('#submitType').change(function() {
+	$('#submitTitle').click(function() {
 
-		var item = $(this).val();
-		if (item === "1") {
-			submitOne();
-		} else {
-			submitTwo();
-		}
+		formDest.empty();
+		$(formDest)
+			.append(
+				$('<input/>').attr({
+					class: 'form-control',
+					type: 'text',
+					id:'joke',
+					placeholder:'Your Joke'})
+			)
+			.append(
+				$('<input/>').attr({
+					class: 'form-control',
+					type: 'text',
+					id:'name',
+					placeholder:'Your Name'})
+			)
+			.append(
+				$('<input/>').attr({
+					class: 'form-control',
+					type: 'text',
+					id:'email',
+					placeholder:'Your Email Address'})
+			)			
+			.append(
+				$('<input/>').attr({
+					type:'button',
+					id:'submitButton',
+					class:'btn',
+					value:'Submit!'})
+				)
 	});
 
 
-	function submitOne() {
-		formDest.empty();
-		$(formDest)
-			.append(
-				$('<input/>').attr({type: 'text', id:'joke', value:'Joke'})
-			)
-			.append(
-				$('<input type="button" id="submitButton" value="Submit!" />')
-				)
-	}
-
-	function submitTwo() {
-		formDest.empty();
-		$(formDest)
-			.append(
-				$('<input/>').attr({type: 'text', id:'joke', value:'Joke'})
-				)
-			.append(
-				$('<input/>').attr({type: 'text', id:'jokeAns', value:'Joke Answer'})
-				)
-			.append(
-				$('<input type="button" id="submitButton" value="Submit!" />')
-				)
-	}
-
-
-
-
-
+	
 
 });

@@ -25,6 +25,7 @@ html
 		script(src='/js/jquery/jquery-1.11.3.min.js')
 		script(src='/js/bootstrap/bootstrap-3.3.5.min.js')
 		script(src='/js/script.js')
+		<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
 		block css
 		block head
@@ -33,26 +34,25 @@ html
 
 		#header: .container
 			h1 Jokes About Clothes
-			p Daily jokes on clothing, fashion and culture
 
 		#body
 			.container
 				block content
 				button#refreshButton.btn New Joke!
 			.container
-				h3 Submit your Own Joke!
+				h3#submitTitle Submit your Joke About Clothes!
 				div.container
-					select#submitType.dropdown-toggle.btn.btn-default
-						option(value=0 selected disabled) Joke Type
-						option(value=1) One-Liner
-						option(value=2) Question and Answer
+					//- select#submitType.dropdown-toggle.btn.btn-default
+					//- 	option(value=0 selected disabled) Joke Type
+					//- 	option(value=1) One-Liner
+					//- 	option(value=2) Question and Answer
 					div#formContainer.container
 				
 
 		.container: #footer
 			
 			a(href='/keystone').btn.btn-lg.btn-primary Open the Admin UI
-			p Jokes about clothes is run by  <a href="http://emilyspivack.info/" target="_blank">Emily Spivack</a>.
+			p Jokes About Clothes is a project by  <a href="http://emilyspivack.info/" target="_blank">Emily Spivack</a>.
 			p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor mattis ex non malesuada. Fusce quis pellentesque dolor. Nunc hendrerit tempus ligula sit amet vehicula. Donec at enim sit amet purus lobortis euismod id in arcu. Ut vulputate libero at purus malesuada, vitae viverra sem commodo. Sed porttitor consequat nisl, ut gravida sem auctor id. Morbi venenatis hendrerit dolor, non posuere ipsum pulvinar at.
 
 
