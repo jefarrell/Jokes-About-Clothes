@@ -6,6 +6,8 @@ body {
 
 h1 {
 	font-weight: 700;
+	font-size: 4em;
+	margin-bottom: 1em;
 }
 
 .container .jumbotron,
@@ -66,6 +68,10 @@ h1 {
 	margin: 1em 0 0 0.5em;
 }
 
+#submitTitle {
+	cursor: pointer;
+}
+
 #submitTitle:hover {
 	font-weight: 700;
 }
@@ -80,7 +86,6 @@ h1 {
 	z-index: 100;
 }
 
-
 .jumbotron {
 	transform: rotate3d(1, -1, 1, 10deg);
 	position: absolute;
@@ -90,29 +95,31 @@ h1 {
 
 .right {
 	width: 20px;
-	height: 399px;
-	background-color: $primary-color;
+	height: 400px;
+	background-color: #cecece;
 	display: inline-block;
 	position: absolute;
 	float:right;
 	-webkit-transform: skewY(45deg);
     -moz-transform: skewY(45deg);
-    right: -22px;
-    top: 8px;
+    right: -21px;
+    top: 7px;
     border: 2px solid $primary-color;
+    border-radius: 2px 0 0 0;
 	z-index: 100;
 }
 
 .left{
-	width: 509px;
+	width: 501px;
 	height: 20px;
 	display: inline-block;
 	position: absolute;
-	-webkit-transform: skewX(30deg);
-	-moz-transform: skewX(30deg);
-	background-color: $primary-color;
+	-webkit-transform: skewX(45deg);
+	-moz-transform: skewX(45deg);
+	background-color: #cecece;
 	border: 2px solid $primary-color;
-	left: 3px;
+	border-radius: 2px 0 2px 0;
+	left: 7px;
 	bottom: -21px;
 	z-index: 100;
 }
@@ -134,17 +141,48 @@ h1 {
 	height: 470px;
 	background-color: red;
 	border: 2px solid $primary-color;
-	border-radius: 4px;
+	border-radius: 4px 0 0 0;
 	z-index: 0;
-	// -webkit-box-shadow: 5px 5px 5px -2px rgba(43,43,43,1);
-	// -moz-box-shadow: 5px 5px 5px -2px rgba(43,43,43,1);
-	// box-shadow: 5px 5px 5px -2px rgba(43,43,43,1);
+	-webkit-box-shadow: 5px 5px 5px -2px rgba(43,43,43,1);
+	-moz-box-shadow: 5px 5px 5px -2px rgba(43,43,43,1);
+	box-shadow: 5px 5px 5px -1px rgba(43,43,43,1);
+}
+
+#calBackRight {
+	width: 3px;
+	height: 470px;
+	background-color: $primary-color;
+	display: inline-block;
+	position: absolute;
+	float:right;
+	-webkit-transform: skewY(45deg);
+    -moz-transform: skewY(45deg);
+    right: -6px;
+    top: 0;
+    border: 2px solid $primary-color;
+    border-radius: 0 0 0 0;
+}
+
+#calBackLeft {
+	width: 521px;
+	height: 3px;
+	display: inline-block;
+	position: absolute;
+	-webkit-transform: skewX(45deg);
+	-moz-transform: skewX(45deg);
+	background-color: $primary-color;
+	border: 2px solid $primary-color;
+	border-radius: 0 0 2px 0;
+	left: 0;
+	bottom: -6px;
 }
 ///////////////////////////////////////////////////
 
-//
-//	Things to help deal with calendar positioning
-//
+
+
+///////////////////////////////////////////////////
+////// Things to help deal with calendar positioning
+///////////////////////////////////////////////////
 #refreshButton {
 	margin-top: 500px;
 }
@@ -153,3 +191,4 @@ h1 {
 	padding-left: 0;
 	position: relative;
 }
+///////////////////////////////////////////////////

@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	
 	getJoke();
+
 	var jokeDest = $('#jokeContainer');
 	var formDest = $("#formContainer");
 
@@ -20,7 +21,6 @@ $(document).ready(function() {
 		});
 	}
 
-	
 	function createSingle(oneLiner) {
 		jokeDest.empty();
 		$(jokeDest)
@@ -59,7 +59,6 @@ $(document).ready(function() {
 	}
 
 	$('#submitTitle').click(function() {
-
 		formDest.empty();
 		$(formDest)
 			.append(
@@ -91,8 +90,5 @@ $(document).ready(function() {
 					value:'Submit!'})
 				)
 	});
-
-
-	
 
 });

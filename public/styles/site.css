@@ -5839,7 +5839,9 @@ body {
   font-family: 'Lora', serif; }
 
 h1 {
-  font-weight: 700; }
+  font-weight: 700;
+  font-size: 4em;
+  margin-bottom: 1em; }
 
 .container .jumbotron,
 .container-fluid .jumbotron {
@@ -5886,6 +5888,9 @@ h1 {
 #email {
   margin: 1em 0 0 0.5em; }
 
+#submitTitle {
+  cursor: pointer; }
+
 #submitTitle:hover {
   font-weight: 700; }
 
@@ -5903,28 +5908,30 @@ h1 {
 
 .right {
   width: 20px;
-  height: 399px;
-  background-color: #4F4F4F;
+  height: 400px;
+  background-color: #cecece;
   display: inline-block;
   position: absolute;
   float: right;
   -webkit-transform: skewY(45deg);
   -moz-transform: skewY(45deg);
-  right: -22px;
-  top: 8px;
+  right: -21px;
+  top: 7px;
   border: 2px solid #4F4F4F;
+  border-radius: 2px 0 0 0;
   z-index: 100; }
 
 .left {
-  width: 509px;
+  width: 501px;
   height: 20px;
   display: inline-block;
   position: absolute;
-  -webkit-transform: skewX(30deg);
-  -moz-transform: skewX(30deg);
-  background-color: #4F4F4F;
+  -webkit-transform: skewX(45deg);
+  -moz-transform: skewX(45deg);
+  background-color: #cecece;
   border: 2px solid #4F4F4F;
-  left: 3px;
+  border-radius: 2px 0 2px 0;
+  left: 7px;
   bottom: -21px;
   z-index: 100; }
 
@@ -5944,11 +5951,38 @@ h1 {
   height: 470px;
   background-color: red;
   border: 2px solid #4F4F4F;
-  border-radius: 4px;
+  border-radius: 4px 0 0 0;
   z-index: 0;
   -webkit-box-shadow: 5px 5px 5px -2px #2b2b2b;
   -moz-box-shadow: 5px 5px 5px -2px #2b2b2b;
-  box-shadow: 5px 5px 5px -2px #2b2b2b; }
+  box-shadow: 5px 5px 5px -1px #2b2b2b; }
+
+#calBackRight {
+  width: 3px;
+  height: 470px;
+  background-color: #4F4F4F;
+  display: inline-block;
+  position: absolute;
+  float: right;
+  -webkit-transform: skewY(45deg);
+  -moz-transform: skewY(45deg);
+  right: -6px;
+  top: 0;
+  border: 2px solid #4F4F4F;
+  border-radius: 0 0 0 0; }
+
+#calBackLeft {
+  width: 521px;
+  height: 3px;
+  display: inline-block;
+  position: absolute;
+  -webkit-transform: skewX(45deg);
+  -moz-transform: skewX(45deg);
+  background-color: #4F4F4F;
+  border: 2px solid #4F4F4F;
+  border-radius: 0 0 2px 0;
+  left: 0;
+  bottom: -6px; }
 
 #refreshButton {
   margin-top: 500px; }
