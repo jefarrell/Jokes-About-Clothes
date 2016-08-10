@@ -5846,8 +5846,8 @@ h1 {
   border-radius: 0px; }
 
 .jumbotron {
-  width: 600px;
-  height: 500px;
+  width: 500px;
+  height: 400px;
   background-color: #FFF;
   border: 6px solid #4F4F4F; }
 
@@ -5896,26 +5896,35 @@ h1 {
   position: relative; }
 
 .jumbotron {
-  transform: rotate3d(1, -1, 1, 20deg);
+  transform: rotate3d(1, -1, 1, 10deg);
   position: absolute;
   z-index: 100;
   display: inline-block; }
 
 .right {
   width: 20px;
-  height: 500px;
+  height: 399px;
   background-color: #4F4F4F;
   display: inline-block;
   position: absolute;
   float: right;
-  -webkit-transform: skewY(30deg);
-  -moz-transform: skewY(-30deg);
+  -webkit-transform: skewY(45deg);
+  -moz-transform: skewY(45deg);
   right: -25px;
-  top: 0; }
+  top: 4px;
+  border: 6px solid #4F4F4F; }
 
 .left {
-  -webkit-transform: skewY(30deg);
-  background-color: red; }
+  width: 507px;
+  height: 20px;
+  display: inline-block;
+  position: absolute;
+  -webkit-transform: skewX(30deg);
+  -moz-transform: skewX(30deg);
+  background-color: #4F4F4F;
+  border: 6px solid #4F4F4F;
+  left: 0;
+  bottom: -25px; }
 
 #refreshButton {
   margin-top: 500px; }
