@@ -5842,6 +5842,10 @@ h1 {
   font-weight: 700;
   font-size: 5em; }
 
+#refreshButton:focus, #submitButton:focus,
+#revealButton:focus {
+  outline: 0; }
+
 .container .jumbotron,
 .container-fluid .jumbotron {
   border-radius: 0px; }
@@ -5854,6 +5858,9 @@ h1 {
 
 #contentwrap {
   padding: 0; }
+
+#footer {
+  border-top: 4px solid #cecece; }
 
 #footer h3, a {
   font-weight: 700;
