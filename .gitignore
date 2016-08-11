@@ -34,3 +34,5 @@ updates
 public/js/bootstrap
 public/js/jquery
 public/styles/bootstrap
+routes/views/cred.js
+

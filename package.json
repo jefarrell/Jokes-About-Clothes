@@ -9,7 +9,8 @@
     "lodash": "^4.13.1",
     "node-sass": "^3.3.2",
     "node-sass-middleware": "^0.9.7",
-    "nodemailer": "^2.5.0"
+    "nodemailer": "^2.5.0",
+    "nodemailer-smtp-transport": "^2.6.0"
   },
   "devDependencies": {
     "eslint": "^2.12.0",

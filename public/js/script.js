@@ -60,4 +60,23 @@ $(document).ready(function() {
 		$("#formContainer").toggle("slow");
 	});
 
+
+	$('#submitButton').click(function(){
+		var jokeField = $('#joke');
+		var nameField = $('#name');
+		var emailField = $('#email');
+
+		var mailData = {
+			joke: jokeField.val(),
+			name: nameField.val(),
+			email: emailField.val()
+		};
+
+		$.ajax({
+			url: '/mail',
+			type: 'POST',
+			contentType: 'application/json',
+			data: JSON.stringify({data:mailData})
+		});
+	});
 });
