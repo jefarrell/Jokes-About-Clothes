@@ -49,13 +49,39 @@ html
 				h3#submitTitle Submit your Joke About Clothes!
 				div.container
 					div#formContainer.container
+						input(
+							class='form-control'
+							id='joke'
+							type='text'
+							placeholder='Your Joke'
+						)
+						div#flexCont
+							input(
+								class='form-control'
+								id='name'
+								type='text'
+								placeholder='Your Name'
+							)
+							input(
+								class='form-control'
+								id='email'
+								type='text'
+								placeholder='Your Email Address'
+							)
+						input(
+							class='btn'
+							id='submitButton'
+							class='btn'
+							value='Submit!'
+						)
 				
 
 		.container: #footer
-			
+			- var by = '<span> is a project by </span>'
+			- var email = '<a href="http://emilyspivack.info/" target="_blank">Emily Spivack</a>'
 			a(href='/keystone').btn.btn-lg.btn-primary Open the Admin UI
-			p Jokes About Clothes is a project by  <a href="http://emilyspivack.info/" target="_blank">Emily Spivack</a>.
-			p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor mattis ex non malesuada. Fusce quis pellentesque dolor. Nunc hendrerit tempus ligula sit amet vehicula. Donec at enim sit amet purus lobortis euismod id in arcu. Ut vulputate libero at purus malesuada, vitae viverra sem commodo. Sed porttitor consequat nisl, ut gravida sem auctor id. Morbi venenatis hendrerit dolor, non posuere ipsum pulvinar at.
+			h3 Jokes About Clothes !{by} !{email}
+
 
 
 

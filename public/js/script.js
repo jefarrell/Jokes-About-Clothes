@@ -1,9 +1,7 @@
 $(document).ready(function() {
 	
 	getJoke();
-
 	var jokeDest = $('#jokeContainer');
-	var formDest = $("#formContainer");
 
 	$('#refreshButton').on('click', function(){
 		getJoke();
@@ -44,7 +42,7 @@ $(document).ready(function() {
 					$('<input/>').attr({
 						type:'button',
 						id:'revealButton',
-						class:'btn',
+						class:'btn btn-circle',
 						value:'Reveal!'})
 					)
 				);
@@ -59,36 +57,7 @@ $(document).ready(function() {
 	}
 
 	$('#submitTitle').click(function() {
-		formDest.empty();
-		$(formDest)
-			.append(
-				$('<input/>').attr({
-					class: 'form-control',
-					type: 'text',
-					id:'joke',
-					placeholder:'Your Joke'})
-			)
-			.append(
-				$('<input/>').attr({
-					class: 'form-control',
-					type: 'text',
-					id:'name',
-					placeholder:'Your Name'})
-			)
-			.append(
-				$('<input/>').attr({
-					class: 'form-control',
-					type: 'text',
-					id:'email',
-					placeholder:'Your Email Address'})
-			)			
-			.append(
-				$('<input/>').attr({
-					type:'button',
-					id:'submitButton',
-					class:'btn',
-					value:'Submit!'})
-				)
+		$("#formContainer").toggle("slow");
 	});
 
 });

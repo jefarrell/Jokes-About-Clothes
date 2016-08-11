@@ -5840,8 +5840,7 @@ body {
 
 h1 {
   font-weight: 700;
-  font-size: 4em;
-  margin-bottom: 1em; }
+  font-size: 5em; }
 
 .container .jumbotron,
 .container-fluid .jumbotron {
@@ -5856,43 +5855,77 @@ h1 {
 #contentwrap {
   padding: 0; }
 
-#revealButton, #refreshButton, #submitButton {
-  color: #FFF;
-  background-color: #4F4F4F;
-  border: 3px solid #4F4F4F; }
+#footer h3, a {
+  font-weight: 700;
+  color: #EC0000; }
+
+#footer span {
+  font-weight: 400;
+  font-size: 0.8em;
+  color: #4F4F4F; }
+
+#revealButton, #refreshButton {
+  color: #4F4F4F;
+  background-color: #FFF;
+  border: 3px dotted #EC0000;
+  border-radius: 50px; }
 
 #submitButton {
   margin-top: 1em;
-  display: block; }
+  display: block;
+  border-radius: 0;
+  width: 20%;
+  color: #FFF;
+  border: 3px solid #EC0000;
+  background-color: #EC0000; }
 
-#revealButton:hover, #refreshButton:hover, #submitButton:hover {
+#submitButton:hover {
   color: #4F4F4F;
   background-color: #FFF;
-  border: 3px dashed #4F4F4F; }
+  border: 3px dotted #EC0000;
+  font-weight: 700; }
 
-.form-control {
-  width: 60%;
-  margin-top: 1em; }
+#revealButton:hover, #refreshButton:hover {
+  color: #FFF;
+  background-color: #EC0000;
+  font-weight: 700; }
 
-.form-control, #revealButton,
-#refreshButton, #submitButton {
-  border-radius: 0px; }
-
-#name, #email {
-  width: 29.4%;
-  display: inline-block; }
-
-#name {
-  margin: 1em 0.5em 0 0; }
-
-#email {
-  margin: 1em 0 0 0.5em; }
+#revealButton {
+  margin-top: 3em; }
 
 #submitTitle {
   cursor: pointer; }
 
 #submitTitle:hover {
   font-weight: 700; }
+
+#refreshButton {
+  margin-top: 500px; }
+
+#formContainer {
+  padding-left: 0;
+  margin-left: 0;
+  position: relative;
+  width: 66%;
+  display: none; }
+
+#flexCont {
+  display: -webkit-flex;
+  display: flex; }
+
+.form-control {
+  margin-top: 1em; }
+
+#name, #email {
+  display: inline-block;
+  -webkit-flex: 1;
+  flex: 1; }
+
+#name {
+  margin: 1em 0.5em 0 0; }
+
+#email {
+  margin: 1em 0 0 0.5em; }
 
 #calWrap {
   margin: 3em 0 3em 10em;
@@ -5949,18 +5982,17 @@ h1 {
   display: inline-block;
   width: 520px;
   height: 470px;
-  background-color: red;
-  border: 2px solid #4F4F4F;
+  background-color: #EC0000;
+  border: 2px solid #800000;
   border-radius: 4px 0 0 0;
   z-index: 0;
-  -webkit-box-shadow: 5px 5px 5px -2px #2b2b2b;
-  -moz-box-shadow: 5px 5px 5px -2px #2b2b2b;
-  box-shadow: 5px 5px 5px -1px #2b2b2b; }
+  -webkit-box-shadow: 5px 5px 5px 0px #2b2b2b;
+  -moz-box-shadow: 5px 5px 5px 0px #2b2b2b;
+  box-shadow: 5px 5px 5px 0px #2b2b2b; }
 
 #calBackRight {
   width: 3px;
   height: 470px;
-  background-color: #4F4F4F;
   display: inline-block;
   position: absolute;
   float: right;
@@ -5968,7 +6000,8 @@ h1 {
   -moz-transform: skewY(45deg);
   right: -6px;
   top: 0;
-  border: 2px solid #4F4F4F;
+  background-color: #800000;
+  border: 2px solid #800000;
   border-radius: 0 0 0 0; }
 
 #calBackLeft {
@@ -5978,15 +6011,8 @@ h1 {
   position: absolute;
   -webkit-transform: skewX(45deg);
   -moz-transform: skewX(45deg);
-  background-color: #4F4F4F;
-  border: 2px solid #4F4F4F;
+  background-color: #800000;
+  border: 2px solid #800000;
   border-radius: 0 0 2px 0;
   left: 0;
   bottom: -6px; }
-
-#refreshButton {
-  margin-top: 500px; }
-
-#formContainer {
-  padding-left: 0;
-  position: relative; }
