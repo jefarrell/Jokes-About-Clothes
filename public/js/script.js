@@ -1,4 +1,24 @@
 $(document).ready(function() {
+
+	var flipbook = $("#flipbook");
+	
+	/******* Flipbook *******/
+	flipbook.turn({
+		display: 'single',
+		width:500,
+		height: 400,
+		autoCenter: true,
+		duration: 800,
+		turnCorners: 'br'
+	});
+
+	flipbook.bind('start', function (event, pageObject, corner) {
+        if (corner == 'tl' || corner == 'tr' || corner == 'bl') {
+            event.preventDefault();
+        }
+    });
+	/**********************/
+
 	
 	getJoke();
 	var jokeDest = $('#jokeContainer');

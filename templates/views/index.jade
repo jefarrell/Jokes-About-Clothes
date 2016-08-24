@@ -2,12 +2,20 @@ extends ../layouts/default
 
 
 block content
+
 	//- wrapper
 	#contentwrap.container: .jumbotron
-
+		script.
+			var jokeCount = #{num};
+			console.log("count: " + jokeCount);
 		div.calendarContainer
-				#jokeContainer.container
-
+				//-#jokeContainer.container
+				#flipbook
+					div.calendar
+						p Hello
+					div.calendar
+					div.calendar
+					div.calendar
 		div.right
 		div.left
 	
