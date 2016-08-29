@@ -5,8 +5,8 @@ $(document).ready(function() {
 	/******* Flipbook *******/
 	flipbook.turn({
 		display: 'single',
-		width:500,
-		height: 400,
+		width:498,
+		height: 398,
 		autoCenter: true,
 		duration: 800,
 		turnCorners: 'br'
@@ -21,7 +21,8 @@ $(document).ready(function() {
 
 	
 	getJoke();
-	var jokeDest = $('#jokeContainer');
+	var jokeDest = $('#one');
+	//var jokeDest = $('#jokeContainer');
 
 	$('#refreshButton').on('click', function(){
 		getJoke();
@@ -98,5 +99,12 @@ $(document).ready(function() {
 			contentType: 'application/json',
 			data: JSON.stringify({data:mailData})
 		});
+	});
+
+
+	/////
+	$('.p-temporal').css({
+		'border': '1px solid black',
+		'background-color': '#F2F2F2'
 	});
 });
