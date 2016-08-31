@@ -10,12 +10,15 @@ body {
 h1 {
 	font-weight: 700;
 	font-size: 5em;
-	// margin-bottom: 1em;
+}
+
+h2 {
+	padding: 1em 1em 0 1em;
 }
 
 #refreshButton:focus, #submitButton:focus, 
 	.revealButton:focus {
-		outline: 0;
+		outline: none !important;
 }
 
 .container .jumbotron,
@@ -28,9 +31,7 @@ h1 {
 	height: 400px;
 	background-color: #FFF;
 	border: 2px solid $primary-gray;
-	/******/
 	padding: 0;
-	//padding-left 0;
 }
 
 #contentwrap {
@@ -54,11 +55,10 @@ h1 {
 }
 
 .revealButton {
-// #revealButton, #refreshButton {
 	color: $primary-gray;
 	background-color: #FFF;
-	border: 3px dotted $primary-red;
-	border-radius: 50px;
+	border: 2px dotted $primary-red;
+	border-radius: 45px;
 }
 
 #submitButton {
@@ -92,8 +92,6 @@ h1 {
 	background-color: $primary-red;
 	font-weight: 700;
 }
-
-
 
 #submitTitle {
 	cursor: pointer;
@@ -152,6 +150,7 @@ h1 {
 	display: inline-block;
 }
 
+/* Right side of paper */
 .right {
 	width: 20px;
 	height: 400px;
@@ -166,8 +165,11 @@ h1 {
     border: 2px solid $primary-gray;
     border-radius: 2px 0 0 0;
 	z-index: 100;
+    background-image: linear-gradient(-90deg, black 25%, transparent 25%, transparent 50%, black 50%, black 75%, transparent 75%, transparent);
+	background-size: 4px 4px; 
 }
 
+/* Left side of paper */
 .left{
 	width: 501px;
 	height: 20px;
@@ -181,6 +183,8 @@ h1 {
 	left: 7px;
 	bottom: -21px;
 	z-index: 100;
+	background-image: linear-gradient(black 25%, transparent 25%, transparent 50%, black 50%, black 75%, transparent 75%, transparent);
+	background-size: 4px 4px; 
 }
 
 #calBack{
@@ -239,7 +243,8 @@ h1 {
 
 
 
-// fucking turnjs shit
+/* TurnJS stuff */
+
 #flipbook{
     width:500px;
     height:400px;
@@ -269,18 +274,19 @@ h1 {
 }
 
 @media screen and (min-width: 768px) {
-.jumbotron {
-  padding-top: 48px;
-  padding-bottom: 48px; }
-  .container .jumbotron,
-  .container-fluid .jumbotron {
-    padding: 0; }
-  .jumbotron h1,
-  .jumbotron .h1 {
-    font-size: 63px; } 
+	.jumbotron {
+	  padding-top: 48px;
+	  padding-bottom: 48px; }
+	  .container .jumbotron,
+	  .container-fluid .jumbotron {
+	    padding: 0; }
+	  .jumbotron h1,
+	  .jumbotron .h1 {
+	    font-size: 63px; } 
 }
 
 .calendarContainer {
 	margin-left: -2px;
 	margin-top: -2px;
+	border-top: 6px solid $primary-gray; 
 }

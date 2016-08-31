@@ -70,27 +70,15 @@ $(document).ready(function() {
 						type:'button',
 						id: tempID,
 						class:'revealButton btn btn-circle',
-						value:'Reveal!'})
+						value:'* Reveal *'})
 					)
-				.append('<div>'+ans+'</div>')
-				// .append(
-				// 	$('<h2>').attr({
-				// 		id: 'blah',
-				// 		visibility: 'hidden',
-				// 		value: ans })
-				// 	)
-
-		// $('#revealButton').on('click', function(){
-		// 	$(double)
-		// 		.append(
-		// 			$('<h2>' + ans + '</h2>')
-		// 			)
-		// 	$('#revealButton').remove();
-		// })
+				.append(
+					'<div>'+ans+'</div>'
+					)
 
 		$('.revealButton').click(function() {
 			$('#'+this.id).remove();
-		})
+		});
 
 		return double
 	}
