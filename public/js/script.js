@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
 	var flipbook = $("#flipbook");
 	
 	/******* Flipbook *******/
@@ -19,80 +18,90 @@ $(document).ready(function() {
     });
 	/**********************/
 
-	
-	getJoke();
-	//var jokeDest = $('#one');
-	//var jokeDest = $('#jokeContainer');
-
-	// $('#refreshButton').on('click', function(){
-	// 	getJoke();
-	// });
-
-	function getJoke() {
+	// Grab jokes from DB
+	function getJokes() {
 		$.get('/refresh', function(data) {
 			console.log(data);
 			for (var i = 0; i < data.length; i++) {
-				addContent(i+1, data[i].joke)
-			// 	var type = data[i].jokeType;
-			// 	if (type === 'One-Liner'){
-			// 		createSingle(data[i].joke, i);
-			// 	}
-			// 	else {
-			// 		createTwo(data[i].joke, data[i].jokeAnswer, i);
-			//  	}
+				addContent(i+1, data[i])
 			}
+			$("#cover").remove();
 		});
 	}
 
-
-	function addContent(pos, joke) {
+	// Dynamically create joke div depending on joke type
+	function addContent(pos, jokeObj) {
 	    var pageCount = flipbook.turn('pages')+1 ;
-	    var possitionOfAddition = pos ;// this is an example, place the position you want to add the new content , use the var pageCount in case you want to add into last.
-	    var element = $('<div>'+ joke + '</div>');
-	    flipbook.turn('addPage', element,possitionOfAddition);
-	    flipbook.turn('pages', pageCount); // Sets the total # of pages
+
+		if (jokeObj.jokeType === 'One-Liner'){
+			var singleJoke = createSingle(jokeObj.joke);
+			flipbook.turn('addPage', singleJoke);
+		}
+		else {
+			var doubleJoke = createTwo(jokeObj.joke, jokeObj.jokeAnswer, pos);
+	 		flipbook.turn('addPage', doubleJoke, pos);
+	 	}
+
+	    flipbook.turn('pages', pageCount); 
 	}
 
-
-	function createSingle(oneLiner, dest) {
-		var jokeDest = $("#"+dest);
-		//jokeDest.empty();
-		$(jokeDest)
-			.append(
-				$('<div>')
+	// Template for one-line joke
+	function createSingle(oneLiner) {
+		var single = $('<div>')
 				.append(
 					$('<h2>' + oneLiner + '</h2>')
 					)
-				);
+
+		return single	
 	}
 
-	function createTwo(quest, ans, dest) {
-		var jokeDest = $("#"+dest);
-		console.log(jokeDest);
-		jokeDest.empty();
-		$(jokeDest)
-			.append(
-				$('<div>')
+	// Template for call & response joke
+	function createTwo(quest, ans, num) {
+		num = num.toString();
+		var tempID = 'revealButton'+num;
+		var othertemp = 'jokeAns'+num;
+		
+		var double = $('<div>')
 				.append(
 					$('<h2>' + quest + '</h2>')
 					)
 				.append(
 					$('<input/>').attr({
 						type:'button',
-						id:'revealButton',
-						class:'btn btn-circle',
+						id: tempID,
+						class:'revealButton btn btn-circle',
 						value:'Reveal!'})
 					)
-				);
-
-		$('#revealButton').on('click', function(){
-			$(jokeDest)
 				.append(
-					$('<h2>' + ans + '</h2>')
+					$('<h2>').attr({
+						id: 'blah',
+						// visibility: 'hidden',
+						value: ans })
 					)
+
+		// $('#revealButton').on('click', function(){
+		// 	$(double)
+		// 		.append(
+		// 			$('<h2>' + ans + '</h2>')
+		// 			)
+		// 	$('#revealButton').remove();
+		// })
+
+		$('#revealButton').click(function() {
+			console.log('clicked ' + $('.jokeAns').val());
+			$('.jokeAns').css('visibility','visible');
 			$('#revealButton').remove();
 		})
+
+		return double
 	}
+
+
+	
+	
+	getJokes();
+
+	/***************************************/
 
 	$('#submitTitle').click(function() {
 		$("#formContainer").toggle("slow");

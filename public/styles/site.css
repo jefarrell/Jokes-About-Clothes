@@ -5843,7 +5843,7 @@ h1 {
   font-size: 5em; }
 
 #refreshButton:focus, #submitButton:focus,
-#revealButton:focus {
+.revealButton:focus {
   outline: 0; }
 
 .container .jumbotron,
@@ -5874,7 +5874,7 @@ h1 {
   font-size: 0.8em;
   color: #4F4F4F; }
 
-#revealButton, #refreshButton {
+.revealButton {
   color: #4F4F4F;
   background-color: #FFF;
   border: 3px dotted #EC0000;
@@ -5898,7 +5898,11 @@ h1 {
 #jokeContainer h2 {
   margin-bottom: 3em; }
 
-#revealButton:hover, #refreshButton:hover {
+#refreshButton {
+  visibility: hidden;
+  margin-top: 500px; }
+
+.revealButton:hover {
   color: #FFF;
   background-color: #EC0000;
   font-weight: 700; }
@@ -5908,9 +5912,6 @@ h1 {
 
 #submitTitle:hover {
   font-weight: 700; }
-
-#refreshButton {
-  margin-top: 500px; }
 
 #formContainer {
   padding-left: 0;

@@ -14,7 +14,7 @@ h1 {
 }
 
 #refreshButton:focus, #submitButton:focus, 
-	#revealButton:focus {
+	.revealButton:focus {
 		outline: 0;
 }
 
@@ -53,7 +53,8 @@ h1 {
 	color: $primary-gray;
 }
 
-#revealButton, #refreshButton {
+.revealButton {
+// #revealButton, #refreshButton {
 	color: $primary-gray;
 	background-color: #FFF;
 	border: 3px dotted $primary-red;
@@ -81,8 +82,12 @@ h1 {
 	margin-bottom: 3em;
 }
 
+#refreshButton {
+	visibility: hidden;
+	margin-top: 500px;
+}
 
-#revealButton:hover, #refreshButton:hover {
+.revealButton:hover {
 	color: #FFF;
 	background-color: $primary-red;
 	font-weight: 700;
@@ -96,10 +101,6 @@ h1 {
 
 #submitTitle:hover {
 	font-weight: 700;
-}
-
-#refreshButton {
-	margin-top: 500px;
 }
 
 #formContainer {
