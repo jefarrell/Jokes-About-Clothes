@@ -21,27 +21,42 @@ $(document).ready(function() {
 
 	
 	getJoke();
-	var jokeDest = $('#one');
+	//var jokeDest = $('#one');
 	//var jokeDest = $('#jokeContainer');
 
-	$('#refreshButton').on('click', function(){
-		getJoke();
-	});
+	// $('#refreshButton').on('click', function(){
+	// 	getJoke();
+	// });
 
 	function getJoke() {
 		$.get('/refresh', function(data) {
-			var type = data[0].jokeType;
-			if (type === 'One-Liner'){
-				createSingle(data[0].joke);
-			}
-			else {
-				createTwo(data[0].joke, data[0].jokeAnswer);
+			console.log(data);
+			for (var i = 0; i < data.length; i++) {
+				addContent(i+1, data[i].joke)
+			// 	var type = data[i].jokeType;
+			// 	if (type === 'One-Liner'){
+			// 		createSingle(data[i].joke, i);
+			// 	}
+			// 	else {
+			// 		createTwo(data[i].joke, data[i].jokeAnswer, i);
+			//  	}
 			}
 		});
 	}
 
-	function createSingle(oneLiner) {
-		jokeDest.empty();
+
+	function addContent(pos, joke) {
+	    var pageCount = flipbook.turn('pages')+1 ;
+	    var possitionOfAddition = pos ;// this is an example, place the position you want to add the new content , use the var pageCount in case you want to add into last.
+	    var element = $('<div>'+ joke + '</div>');
+	    flipbook.turn('addPage', element,possitionOfAddition);
+	    flipbook.turn('pages', pageCount); // Sets the total # of pages
+	}
+
+
+	function createSingle(oneLiner, dest) {
+		var jokeDest = $("#"+dest);
+		//jokeDest.empty();
 		$(jokeDest)
 			.append(
 				$('<div>')
@@ -51,7 +66,9 @@ $(document).ready(function() {
 				);
 	}
 
-	function createTwo(quest, ans) {
+	function createTwo(quest, ans, dest) {
+		var jokeDest = $("#"+dest);
+		console.log(jokeDest);
 		jokeDest.empty();
 		$(jokeDest)
 			.append(

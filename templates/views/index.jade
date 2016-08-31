@@ -5,17 +5,11 @@ block content
 
 	//- wrapper
 	#contentwrap.container: .jumbotron
-		script.
-			var jokeCount = #{num};
-			console.log("count: " + jokeCount);
 		div.calendarContainer
-				//-#jokeContainer.container
 				#flipbook
-					//- put one class in
-					div#one.calendar
-					div.calendar
-					div.calendar
-					div.calendar
+					//- will dynamically fill this!
+					div#end.calendar
+						p That's the end!
 		div.right
 		div.left
 	
