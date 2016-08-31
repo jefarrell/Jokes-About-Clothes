@@ -60,7 +60,7 @@ $(document).ready(function() {
 		num = num.toString();
 		var tempID = 'revealButton'+num;
 		var othertemp = 'jokeAns'+num;
-		
+
 		var double = $('<div>')
 				.append(
 					$('<h2>' + quest + '</h2>')
@@ -72,12 +72,13 @@ $(document).ready(function() {
 						class:'revealButton btn btn-circle',
 						value:'Reveal!'})
 					)
-				.append(
-					$('<h2>').attr({
-						id: 'blah',
-						// visibility: 'hidden',
-						value: ans })
-					)
+				.append('<div>'+ans+'</div>')
+				// .append(
+				// 	$('<h2>').attr({
+				// 		id: 'blah',
+				// 		visibility: 'hidden',
+				// 		value: ans })
+				// 	)
 
 		// $('#revealButton').on('click', function(){
 		// 	$(double)
@@ -87,10 +88,8 @@ $(document).ready(function() {
 		// 	$('#revealButton').remove();
 		// })
 
-		$('#revealButton').click(function() {
-			console.log('clicked ' + $('.jokeAns').val());
-			$('.jokeAns').css('visibility','visible');
-			$('#revealButton').remove();
+		$('.revealButton').click(function() {
+			$('#'+this.id).remove();
 		})
 
 		return double
