@@ -8,7 +8,8 @@ $(document).ready(function() {
 		width:498,
 		height: 398,
 		autoCenter: true,
-		duration: 1000//,
+		duration: 1000,
+		pages: 10
 		//turnCorners: 'br'
 	});
 
@@ -37,6 +38,7 @@ $(document).ready(function() {
 			$('.revealButton').click(function() {
 				//$('#refreshButton').css('visibility','visible');
 				$('#'+this.id).remove();
+				console.log(this.id);
 			});			
 		});
 	}
