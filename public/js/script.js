@@ -1,35 +1,41 @@
 $(document).ready(function() {
+
 	var flipbook = $("#flipbook");
 	
 	/******* Flipbook *******/
-	flipbook.turn({
+	var pageTurn = flipbook.turn({
 		display: 'single',
 		width:498,
 		height: 398,
 		autoCenter: true,
-		duration: 800,
-		turnCorners: 'br'
+		duration: 1000//,
+		//turnCorners: 'br'
 	});
 
 	flipbook.bind('start', function (event, pageObject, corner) {
-        if (corner == 'tl' || corner == 'tr' || corner == 'bl') {
+        if (corner == 'tl' || corner == 'tr' || corner == 'bl' || corner == 'br') {
             event.preventDefault();
         }
     });
 	/**********************/
 
+	// Turn page via button instead of tabs
+	$('#refreshButton').click(function(e) {
+		e.preventDefault();
+		pageTurn.turn('next');
+	});
+
+
 	// Grab jokes from DB
 	function getJokes() {
 		$.get('/refresh', function(data) {
-			console.log(data);
 			for (var i = 0; i < data.length; i++) {
 				addContent(i+1, data[i])
 			}
 
 			$('#cover').remove();
 			$('.revealButton').click(function() {
-				console.log('#'+this.id);
-				console.log($('#'+this.id));
+				//$('#refreshButton').css('visibility','visible');
 				$('#'+this.id).remove();
 			});			
 		});
@@ -76,24 +82,21 @@ $(document).ready(function() {
 						type:'button',
 						id: tempID,
 						class:'revealButton btn btn-circle',
-						value:'SEE THE ANSWER!'})
+						value:'TELL ME!'})
 					)
 				.append(
-					'<div>'+ans+'</div>'
+					'<p>'+ans+'</p>'
 					)
 
-		// $('.revealButton').click(function() {
-		// 	console.log('#'+this.id);
-		// 	console.log($('#'+this.id));
-		// 	$('#'+this.id).remove();
-		// });
+		// Had reveal button function here before
 
 		return double
 	}
 
+	// Flash background on reveal button
 	var backgroundInterval = setInterval(function(){
 		$('.revealButton').toggleClass('buttonFlash');
-	},1000)
+	},500)
 	
 
 	
@@ -125,10 +128,4 @@ $(document).ready(function() {
 		});
 	});
 
-
-	/////
-	$('.p-temporal').css({
-		'border': '1px solid black',
-		'background-color': '#F2F2F2'
-	});
 });

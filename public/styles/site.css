@@ -5890,21 +5890,33 @@ h1, h2 {
   -moz-border-image: url(/images/outline.png) 100 stretch; }
 
 .page h2 {
-  width: 500px;
-  margin-left: -30px;
-  font-size: 1.5em; }
+  font-size: 1em; }
+
+.page p {
+  font-size: 1.5em;
+  max-width: 400px;
+  overflow-x: scroll;
+  margin-left: 0; }
+
+.page {
+  word-wrap: break-word;
+  width: 200px; }
 
 .revealButton {
-  color: #FFF;
+  color: #EC0000;
   background-color: #FFF;
   width: 100%;
   margin-left: -30px;
-  -webkit-transition: background 1.0s ease-in-out;
-  -ms-transition: background 1.0s ease-in-out;
-  transition: background 1.0s ease-in-out; }
+  font-size: 1em; }
 
 .buttonFlash {
-  background-color: #EC0000; }
+  background-color: #EC0000;
+  color: #FFF; }
+
+.revealButton:hover {
+  color: #FFF;
+  background-color: #EC0000;
+  font-weight: 700; }
 
 #submitButton {
   margin-top: 1em;
@@ -5925,13 +5937,7 @@ h1, h2 {
   margin-bottom: 3em; }
 
 #refreshButton {
-  visibility: hidden;
   margin-top: 500px; }
-
-.revealButton:hover {
-  color: #FFF;
-  background-color: #EC0000;
-  font-weight: 700; }
 
 #submitTitle {
   cursor: pointer; }
