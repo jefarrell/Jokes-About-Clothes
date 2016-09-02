@@ -8,8 +8,8 @@ $(document).ready(function() {
 		width:498,
 		height: 398,
 		autoCenter: true,
-		duration: 1000//,
-		//turnCorners: 'br'
+		duration: 1000,
+		pages: 10
 	});
 
 	flipbook.bind('start', function (event, pageObject, corner) {
@@ -25,37 +25,40 @@ $(document).ready(function() {
 		pageTurn.turn('next');
 	});
 
+	var counter = 1;
 
-	// Grab jokes from DB
-	function getJokes() {
-		$.get('/refresh', function(data) {
-			for (var i = 0; i < data.length; i++) {
-				addContent(i+1, data[i])
-			}
-
-			$('#cover').remove();
-			$('.revealButton').click(function() {
-				//$('#refreshButton').css('visibility','visible');
-				$('#'+this.id).remove();
-			});			
-		});
-	}
-
-	// Dynamically create joke div depending on joke type
-	function addContent(pos, jokeObj) {
-	    var pageCount = flipbook.turn('pages')+1 ;
-
-		if (jokeObj.jokeType === 'One-Liner'){
-			var singleJoke = createSingle(jokeObj.joke);
-			flipbook.turn('addPage', singleJoke);
+	flipbook.bind('turning', function(e, page) {
+		console.log(page);
+		var range = $(this).turn('range', page);
+		for (page = range[0]; page <= range[1]; page++) {
+			addPage(page, $(this));
+			counter++;
 		}
-		else {
-			var doubleJoke = createTwo(jokeObj.joke, jokeObj.jokeAnswer, pos);
-	 		flipbook.turn('addPage', doubleJoke, pos);
-	 	}
 
-	    flipbook.turn('pages', pageCount); 
+
+	});
+
+	function addPage(page, book) {
+		console.log('runs, counter: ' + counter);
+		if (!book.turn('hasPage', page)) {
+			//console.log('if runs');
+			var element = $('<div />');
+			book.turn('addPage', element, page);
+			$.get('/refresh', function(data) {
+				if (data[0].jokeType === 'One-Liner'){
+					var singleJoke = createSingle(data[0].joke);
+					element.html(singleJoke);
+				}
+				else {
+					var doubleJoke = createTwo(data[0].joke, data[0].jokeAnswer, counter);
+			 		element.html(doubleJoke);
+			 		$('.revealButton').attr('id', 'revealButton'+page.toString());
+			 	}
+			});	
+		}
 	}
+
+	//addPage($('#cover'),flipbook);
 
 	// Template for one-line joke
 	function createSingle(oneLiner) {
@@ -66,13 +69,13 @@ $(document).ready(function() {
 
 		return single	
 	}
-
+	var fuck = 1;
 	// Template for call & response joke
 	function createTwo(quest, ans, num) {
 		num = num.toString();
-		var tempID = 'revealButton'+num;
-		var othertemp = 'jokeAns'+num;
-
+		var tempID = 'revealButton' + fuck;
+		var othertemp = 'jokeAns';
+		console.log('create two, counter: ' + fuck);
 		var double = $('<div>')
 				.append(
 					$('<h2>' + quest + '</h2>')
@@ -80,7 +83,7 @@ $(document).ready(function() {
 				.append(
 					$('<input/>').attr({
 						type:'button',
-						id: tempID,
+						// id: tempID,
 						class:'revealButton btn btn-circle',
 						value:'TELL ME!'})
 					)
@@ -88,8 +91,11 @@ $(document).ready(function() {
 					'<p>'+ans+'</p>'
 					)
 
-		// Had reveal button function here before
-
+		$('.revealButton').click(function(e){
+			$(e.target).remove();
+		});
+		
+		fuck++;
 		return double
 	}
 
@@ -100,7 +106,7 @@ $(document).ready(function() {
 	
 
 	
-	getJokes();
+	//getJokes();
 
 	/***************************************/
 
