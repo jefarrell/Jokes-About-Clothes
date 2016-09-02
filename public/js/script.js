@@ -25,7 +25,13 @@ $(document).ready(function() {
 			for (var i = 0; i < data.length; i++) {
 				addContent(i+1, data[i])
 			}
-			$("#cover").remove();
+
+			$('#cover').remove();
+			$('.revealButton').click(function() {
+				console.log('#'+this.id);
+				console.log($('#'+this.id));
+				$('#'+this.id).remove();
+			});			
 		});
 	}
 
@@ -70,21 +76,26 @@ $(document).ready(function() {
 						type:'button',
 						id: tempID,
 						class:'revealButton btn btn-circle',
-						value:'* Reveal *'})
+						value:'SEE THE ANSWER!'})
 					)
 				.append(
 					'<div>'+ans+'</div>'
 					)
 
-		$('.revealButton').click(function() {
-			$('#'+this.id).remove();
-		});
+		// $('.revealButton').click(function() {
+		// 	console.log('#'+this.id);
+		// 	console.log($('#'+this.id));
+		// 	$('#'+this.id).remove();
+		// });
 
 		return double
 	}
 
-
+	var backgroundInterval = setInterval(function(){
+		$('.revealButton').toggleClass('buttonFlash');
+	},1000)
 	
+
 	
 	getJokes();
 
