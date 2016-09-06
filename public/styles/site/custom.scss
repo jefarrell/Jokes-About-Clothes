@@ -134,7 +134,7 @@ h1,h2 {
 }
 
 #refreshButton {
-	// visibility: hidden;
+	visibility: hidden;
 	margin-top: 500px;
 }
 
@@ -329,4 +329,12 @@ h1,h2 {
 }
 
 
-
+#fixer {
+	@extend .container;
+	background-color: white;
+	z-index: 1000;
+	//height: 100%;
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+}

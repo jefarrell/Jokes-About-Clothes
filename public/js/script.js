@@ -2,14 +2,17 @@ $(document).ready(function() {
 
 	var flipbook = $("#flipbook");
 	
+
+	
+
 	/******* Flipbook *******/
 	var pageTurn = flipbook.turn({
 		display: 'single',
 		width:498,
 		height: 398,
 		autoCenter: true,
-		duration: 1000,
-		pages: 10
+		duration: 500,
+		pages: 11
 	});
 
 	flipbook.bind('start', function (event, pageObject, corner) {
@@ -21,14 +24,15 @@ $(document).ready(function() {
 
 	// Turn page via button instead of tabs
 	$('#refreshButton').click(function(e) {
-		e.preventDefault();
+		//e.preventDefault();
 		pageTurn.turn('next');
 	});
+
+	
 
 	var counter = 1;
 
 	flipbook.bind('turning', function(e, page) {
-		console.log(page);
 		var range = $(this).turn('range', page);
 		for (page = range[0]; page <= range[1]; page++) {
 			addPage(page, $(this));
@@ -39,9 +43,8 @@ $(document).ready(function() {
 	});
 
 	function addPage(page, book) {
-		console.log('runs, counter: ' + counter);
+
 		if (!book.turn('hasPage', page)) {
-			//console.log('if runs');
 			var element = $('<div />');
 			book.turn('addPage', element, page);
 			$.get('/refresh', function(data) {
@@ -54,7 +57,7 @@ $(document).ready(function() {
 			 		element.html(doubleJoke);
 			 		$('.revealButton').attr('id', 'revealButton'+page.toString());
 			 	}
-			});	
+			});		
 		}
 	}
 
@@ -94,7 +97,7 @@ $(document).ready(function() {
 		$('.revealButton').click(function(e){
 			$(e.target).remove();
 		});
-		
+
 		fuck++;
 		return double
 	}
@@ -102,12 +105,19 @@ $(document).ready(function() {
 	// Flash background on reveal button
 	var backgroundInterval = setInterval(function(){
 		$('.revealButton').toggleClass('buttonFlash');
-	},500)
+	},500);
 	
 
-	
-	//getJokes();
+	//(function(){
+		$('#refreshButton')[0].click();
+	//})();
 
+	// Workaround for weird initial load issue
+	var ajaxFixer = setTimeout(function(){
+		$('#fixer').remove();
+	}, 900);
+
+	
 	/***************************************/
 
 	$('#submitTitle').click(function() {
