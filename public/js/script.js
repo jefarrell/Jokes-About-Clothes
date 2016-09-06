@@ -11,7 +11,7 @@ $(document).ready(function() {
 		width:498,
 		height: 398,
 		autoCenter: true,
-		duration: 500,
+		duration: 900,
 		pages: 11
 	});
 
@@ -108,9 +108,9 @@ $(document).ready(function() {
 	},500);
 	
 
-	//(function(){
+	(function(){
 		$('#refreshButton')[0].click();
-	//})();
+	})();
 
 	// Workaround for weird initial load issue
 	var ajaxFixer = setTimeout(function(){

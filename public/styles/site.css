@@ -1499,24 +1499,24 @@ pre {
   max-height: 340px;
   overflow-y: scroll; }
 
-.container, #fixer {
+.container {
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px; }
-  .container:before, #fixer:before, .container:after, #fixer:after {
+  .container:before, .container:after {
     content: " ";
     display: table; }
-  .container:after, #fixer:after {
+  .container:after {
     clear: both; }
   @media (min-width: 768px) {
-    .container, #fixer {
+    .container {
       width: 750px; } }
   @media (min-width: 992px) {
-    .container, #fixer {
+    .container {
       width: 970px; } }
   @media (min-width: 1200px) {
-    .container, #fixer {
+    .container {
       width: 1170px; } }
 
 .container-fluid {
@@ -3730,15 +3730,15 @@ tbody.collapse.in {
     .navbar-fixed-bottom .navbar-collapse {
       max-height: 200px; } }
 
-.container > .navbar-header, #fixer > .navbar-header,
-.container > .navbar-collapse, #fixer > .navbar-collapse,
+.container > .navbar-header,
+.container > .navbar-collapse,
 .container-fluid > .navbar-header,
 .container-fluid > .navbar-collapse {
   margin-right: -15px;
   margin-left: -15px; }
   @media (min-width: 768px) {
-    .container > .navbar-header, #fixer > .navbar-header,
-    .container > .navbar-collapse, #fixer > .navbar-collapse,
+    .container > .navbar-header,
+    .container > .navbar-collapse,
     .container-fluid > .navbar-header,
     .container-fluid > .navbar-collapse {
       margin-right: 0;
@@ -3782,7 +3782,7 @@ tbody.collapse.in {
   .navbar-brand > img {
     display: block; }
   @media (min-width: 768px) {
-    .navbar > .container .navbar-brand, .navbar > #fixer .navbar-brand,
+    .navbar > .container .navbar-brand,
     .navbar > .container-fluid .navbar-brand {
       margin-left: -15px; } }
 
@@ -4309,16 +4309,16 @@ a.badge:hover, a.badge:focus {
     font-weight: 200; }
   .jumbotron > hr {
     border-top-color: #d5d5d5; }
-  .container .jumbotron, #fixer .jumbotron,
+  .container .jumbotron,
   .container-fluid .jumbotron {
     border-radius: 6px; }
-  .jumbotron .container, .jumbotron #fixer {
+  .jumbotron .container {
     max-width: 100%; }
   @media screen and (min-width: 768px) {
     .jumbotron {
       padding-top: 48px;
       padding-bottom: 48px; }
-      .container .jumbotron, #fixer .jumbotron,
+      .container .jumbotron,
       .container-fluid .jumbotron {
         padding-left: 60px;
         padding-right: 60px; }
@@ -5852,7 +5852,7 @@ h1, h2 {
 .revealButton:focus {
   outline: none !important; }
 
-.container .jumbotron, #fixer .jumbotron,
+.container .jumbotron,
 .container-fluid .jumbotron {
   border-radius: 0px; }
 
@@ -5874,6 +5874,9 @@ h1, h2 {
   color: #EC0000;
   margin-bottom: 2em; }
 
+#footer a {
+  text-decoration: underline; }
+
 #footer span {
   font-weight: 400;
   font-size: 0.8em;
@@ -5890,24 +5893,28 @@ h1, h2 {
   -moz-border-image: url(/images/outline.png) 100 stretch; }
 
 .page h2 {
-  font-size: 1em; }
+  font-size: 1em;
+  line-height: 1.5em; }
 
 .page p {
   font-size: 1.5em;
-  max-width: 400px;
-  overflow-x: scroll;
-  margin-left: 0; }
+  line-height: 1.25em;
+  margin-top: 4em;
+  font-style: italic; }
 
-.page {
+.page div {
+  width: 75%;
+  margin-left: 5%;
   word-wrap: break-word;
-  width: 200px; }
+  overflow: visible; }
 
 .revealButton {
   color: #EC0000;
   background-color: #FFF;
   width: 100%;
-  margin-left: -30px;
-  font-size: 1em; }
+  margin-left: 0.75em;
+  font-size: 1em;
+  border-radius: 0; }
 
 .buttonFlash {
   background-color: #EC0000;
@@ -5937,8 +5944,23 @@ h1, h2 {
   margin-bottom: 3em; }
 
 #refreshButton {
-  visibility: hidden;
-  margin-top: 500px; }
+  float: right;
+  margin-top: 10em;
+  margin-left: 10em;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px dotted #EC0000;
+  background-color: #FFF; }
+
+#refreshButton:hover {
+  color: #EC0000;
+  font-style: italic;
+  font-weight: 700;
+  border: 2px solid #EC0000; }
+
+#spacer {
+  margin-top: 500px;
+  display: block; }
 
 #submitTitle {
   cursor: pointer; }
@@ -6090,20 +6112,32 @@ h1, h2 {
   -o-perspective: 1200px;
   perspective: 1200px; }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 950px) {
   .jumbotron {
     padding-top: 48px;
     padding-bottom: 48px; }
-  .container .jumbotron, #fixer .jumbotron,
+  .container .jumbotron,
   .container-fluid .jumbotron {
     padding: 0; }
   .jumbotron h1,
   .jumbotron .h1 {
     font-size: 63px; } }
 
+@media (max-width: 950px) and (min-width: 767px) {
+  #flipbook {
+    margin-left: -60px !important; } }
+
+@media (max-width: 950px) {
+  #refreshButton {
+    float: left;
+    margin-left: 0; } }
+
 #fixer {
   background-color: white;
   z-index: 1000;
   position: absolute;
-  height: 100vh;
-  width: 100vw; }
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed; }

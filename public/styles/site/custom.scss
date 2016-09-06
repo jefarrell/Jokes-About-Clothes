@@ -52,6 +52,10 @@ h1,h2 {
 	margin-bottom: 2em;
 }
 
+#footer a {
+	text-decoration: underline;
+}
+
 #footer span {
 	font-weight: 400;
 	font-size: 0.8em;
@@ -74,27 +78,34 @@ h1,h2 {
 
 .page h2 {
 	font-size: 1em;
+	line-height: 1.5em;
 
 }
 
 .page p {
 	font-size: 1.5em;
-	max-width: 400px;
-	overflow-x: scroll;
-	margin-left: 0;
+	line-height: 1.25em;
+	margin-top: 4em;
+	font-style: italic;
 }
 
-.page {
+
+.page div {
+	width: 75%;
+	margin-left: 5%;
 	word-wrap: break-word;
-	width: 200px;
+	overflow: visible;
 }
+
+
 
 .revealButton {
 	color: $primary-red;
 	background-color: #FFF;
 	width: 100%;
-	margin-left: -30px;
+	margin-left: 0.75em;
 	font-size: 1em;
+	border-radius: 0;
 	// -webkit-transition: background 1.0s ease-in-out;
  //    -ms-transition: background 1.0s ease-in-out;
  //    transition: background 1.0s ease-in-out;
@@ -134,10 +145,26 @@ h1,h2 {
 }
 
 #refreshButton {
-	visibility: hidden;
-	margin-top: 500px;
+	float: right;
+	margin-top: 10em;
+	margin-left: 10em;
+	padding: 20px;
+	border-radius: 10px;
+	border: 2px dotted $primary-red;
+	background-color: #FFF;
 }
 
+#refreshButton:hover {
+	color: $primary-red;
+	font-style: italic;
+	font-weight: 700;
+	border: 2px solid $primary-red;
+}
+
+#spacer {
+	margin-top: 300px;
+	display: block;
+}
 
 #submitTitle {
 	cursor: pointer;
@@ -316,7 +343,7 @@ h1,h2 {
     perspective:1200px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 950px) {
 	.jumbotron {
 	  padding-top: 48px;
 	  padding-bottom: 48px; }
@@ -328,13 +355,30 @@ h1,h2 {
 	    font-size: 63px; } 
 }
 
+@media (max-width: 950px) and (min-width: 767px) {
+	#flipbook {
+		margin-left: -60px !important;
+	}
+}
+
+@media (max-width: 950px) {
+	#refreshButton {
+		float:left;
+		margin-left: 0;
+	}
+}
+
 
 #fixer {
-	@extend .container;
 	background-color: white;
 	z-index: 1000;
-	//height: 100%;
 	position: absolute;
-	height: 100vh;
-	width: 100vw;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
 }
+
+
+
