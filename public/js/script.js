@@ -1,9 +1,6 @@
 $(document).ready(function() {
 
 	var flipbook = $("#flipbook");
-	
-
-	
 
 	/******* Flipbook *******/
 	var pageTurn = flipbook.turn({
@@ -22,25 +19,20 @@ $(document).ready(function() {
     });
 	/**********************/
 
+
 	// Turn page via button instead of tabs
 	$('#refreshButton').click(function(e) {
-		//e.preventDefault();
 		pageTurn.turn('next');
 	});
 
 	
-
-	var counter = 1;
-
 	flipbook.bind('turning', function(e, page) {
 		var range = $(this).turn('range', page);
 		for (page = range[0]; page <= range[1]; page++) {
 			addPage(page, $(this));
-			counter++;
 		}
-
-
 	});
+
 
 	function addPage(page, book) {
 
@@ -53,15 +45,13 @@ $(document).ready(function() {
 					element.html(singleJoke);
 				}
 				else {
-					var doubleJoke = createTwo(data[0].joke, data[0].jokeAnswer, counter);
+					var doubleJoke = createTwo(data[0].joke, data[0].jokeAnswer);
 			 		element.html(doubleJoke);
 			 		$('.revealButton').attr('id', 'revealButton'+page.toString());
 			 	}
 			});		
 		}
 	}
-
-	//addPage($('#cover'),flipbook);
 
 	// Template for one-line joke
 	function createSingle(oneLiner) {
@@ -72,13 +62,11 @@ $(document).ready(function() {
 
 		return single	
 	}
-	var fuck = 1;
+
+
 	// Template for call & response joke
-	function createTwo(quest, ans, num) {
-		num = num.toString();
-		var tempID = 'revealButton' + fuck;
+	function createTwo(quest, ans) {
 		var othertemp = 'jokeAns';
-		console.log('create two, counter: ' + fuck);
 		var double = $('<div>')
 				.append(
 					$('<h2>' + quest + '</h2>')
@@ -86,7 +74,6 @@ $(document).ready(function() {
 				.append(
 					$('<input/>').attr({
 						type:'button',
-						// id: tempID,
 						class:'revealButton btn btn-circle',
 						value:'TELL ME!'})
 					)
@@ -97,8 +84,7 @@ $(document).ready(function() {
 		$('.revealButton').click(function(e){
 			$(e.target).remove();
 		});
-
-		fuck++;
+		
 		return double
 	}
 

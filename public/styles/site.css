@@ -5959,7 +5959,7 @@ h1, h2 {
   border: 2px solid #EC0000; }
 
 #spacer {
-  margin-top: 500px;
+  margin-top: 300px;
   display: block; }
 
 #submitTitle {
@@ -6049,6 +6049,8 @@ h1, h2 {
 
 #calBackInner {
   transform: rotate3d(1, -1, 1, 10deg);
+  -webkit-transform: rotate3d(1, -1, 1, 10deg);
+  -moz-transform: rotate3d(1, -1, 1, 10deg) scale(0.9999);
   position: absolute;
   z-index: 100;
   display: inline-block;
@@ -6056,6 +6058,7 @@ h1, h2 {
   height: 470px;
   background-color: #EC0000;
   border: 2px solid #800000;
+  outline: 2px solid transparent;
   border-radius: 4px 0 0 0;
   z-index: 0;
   -webkit-box-shadow: 5px 5px 5px 0px #2b2b2b;
