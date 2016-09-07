@@ -9,7 +9,7 @@ $(document).ready(function() {
 		height: 398,
 		autoCenter: true,
 		duration: 900,
-		pages: 11
+		pages: 1000
 	});
 
 	flipbook.bind('start', function (event, pageObject, corner) {
@@ -25,7 +25,8 @@ $(document).ready(function() {
 		pageTurn.turn('next');
 	});
 
-	
+	// turnjs dynamic page creation
+	// keeps block of 6 in memory
 	flipbook.bind('turning', function(e, page) {
 		var range = $(this).turn('range', page);
 		for (page = range[0]; page <= range[1]; page++) {
@@ -35,7 +36,6 @@ $(document).ready(function() {
 
 
 	function addPage(page, book) {
-
 		if (!book.turn('hasPage', page)) {
 			var element = $('<div />');
 			book.turn('addPage', element, page);
@@ -84,7 +84,7 @@ $(document).ready(function() {
 		$('.revealButton').click(function(e){
 			$(e.target).remove();
 		});
-		
+
 		return double
 	}
 
@@ -93,12 +93,11 @@ $(document).ready(function() {
 		$('.revealButton').toggleClass('buttonFlash');
 	},500);
 	
-
+	// Two weird workarounds for initial page load
 	(function(){
 		$('#refreshButton')[0].click();
 	})();
 
-	// Workaround for weird initial load issue
 	var ajaxFixer = setTimeout(function(){
 		$('#fixer').remove();
 	}, 900);

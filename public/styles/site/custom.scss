@@ -3,6 +3,9 @@ $secondary-gray: #cecece;
 $primary-red: #EC0000;
 $secondary-red: #800000;
 
+$calW: 500px;
+$calH: 400px;
+
 body {
 	font-family: 'Lora', serif;
 }
@@ -31,8 +34,8 @@ h1,h2 {
 }
 
 .jumbotron {
-	width: 500px;
-	height: 400px;
+	width: $calW;
+	height: $calH;
 	background-color: #FFF;
 	border: 2px solid $primary-gray;
 	padding: 0;
@@ -46,14 +49,18 @@ h1,h2 {
 	border-top: 4px solid $secondary-gray;
 }
 
-#footer h3, a {
+#footer h3, a, a:visited {
 	font-weight: 700;
 	color: $primary-red;
-	margin-bottom: 2em;
+	margin-bottom: 1em;
 }
 
 #footer a {
 	text-decoration: underline;
+}
+
+#footer a:hover {
+	color: $secondary-red;
 }
 
 #footer span {
@@ -65,11 +72,9 @@ h1,h2 {
 .calendarContainer {
 	margin-left: -2px;
 	margin-top: -2px;
-	// border-top: 6px solid $primary-gray; 
 }
 
 .page-wrapper {
-	// background-color: #FFF;
 	border: 30px solid transparent;
 	border-image: url(/images/outline.png) 100 stretch;
 	-webkit-border-image:url(/images/outline.png) 100 stretch;
@@ -97,8 +102,6 @@ h1,h2 {
 	overflow: visible;
 }
 
-
-
 .revealButton {
 	color: $primary-red;
 	background-color: #FFF;
@@ -106,9 +109,6 @@ h1,h2 {
 	margin-left: 0.75em;
 	font-size: 1em;
 	border-radius: 0;
-	// -webkit-transition: background 1.0s ease-in-out;
- //    -ms-transition: background 1.0s ease-in-out;
- //    transition: background 1.0s ease-in-out;
 }
 
 .buttonFlash {
@@ -121,7 +121,6 @@ h1,h2 {
 	background-color: $primary-red;
 	font-weight: 700;
 }
-
 
 #submitButton {
 	margin-top: 1em;
@@ -147,7 +146,7 @@ h1,h2 {
 #refreshButton {
 	float: right;
 	margin-top: 10em;
-	margin-left: 10em;
+	margin-right: 10em;
 	padding: 20px;
 	border-radius: 10px;
 	border: 2px dotted $primary-red;
@@ -223,16 +222,27 @@ h1,h2 {
 	display: inline-block;
 }
 
+@mixin skew-X($Xdeg) {
+	transform: skewX($Xdeg);
+	-webkit-transform: skewX($Xdeg);
+    -moz-transform: skewX($Xdeg);
+}
+
+@mixin skew-Y($Xdeg) {
+	transform: skewY($Xdeg);
+	-webkit-transform: skewY($Xdeg);
+    -moz-transform: skewY($Xdeg);
+}
+
 /* Right side of paper */
 .right {
+	@include skew-Y(45deg);
 	width: 20px;
 	height: 400px;
 	background-color: $secondary-gray;
 	display: inline-block;
 	position: absolute;
 	float:right;
-	-webkit-transform: skewY(45deg);
-    -moz-transform: skewY(45deg);
     right: -21px;
     top: 7px;
     border: 2px solid $primary-gray;
@@ -244,12 +254,11 @@ h1,h2 {
 
 /* Left side of paper */
 .left{
+	@include skew-X(45deg);
 	width: 501px;
 	height: 20px;
 	display: inline-block;
 	position: absolute;
-	-webkit-transform: skewX(45deg);
-	-moz-transform: skewX(45deg);
 	background-color: $secondary-gray;
 	border: 2px solid $primary-gray;
 	border-radius: 2px 0 2px 0;
@@ -288,13 +297,12 @@ h1,h2 {
 }
 
 #calBackRight {
+	@include skew-Y(45deg);
 	width: 3px;
 	height: 470px;
 	display: inline-block;
 	position: absolute;
 	float:right;
-	-webkit-transform: skewY(45deg);
-    -moz-transform: skewY(45deg);
     right: -6px;
     top: 0;
     background-color: $secondary-red;
@@ -303,12 +311,11 @@ h1,h2 {
 }
 
 #calBackLeft {
+	@include skew-X(45deg);
 	width: 521px;
 	height: 3px;
 	display: inline-block;
 	position: absolute;
-	-webkit-transform: skewX(45deg);
-	-moz-transform: skewX(45deg);
 	background-color: $secondary-red;
 	border: 2px solid $secondary-red;
 	border-radius: 0 0 2px 0;
@@ -322,28 +329,32 @@ h1,h2 {
 /* TurnJS stuff */
 
 #flipbook{
-    width:500px;
-    height:400px;
+    width: $calW;
+    height: $calH;
     border: 1px solid black;
     z-index: 101;
     overflow: visible !important;
 }
 
 #flipbook .page{
-    width:500px;
-    height:400px;
-    background:white;
-    line-height:300px;
-    font-size:20px;
-    text-align:center;
+    width: $calW;
+    height: $calH;
+    background: white;
+    line-height: 300px;
+    font-size: 20px;
+    text-align: center;
+}
+
+@mixin perspective($deg) {
+	-webkit-perspective: $deg;
+    -moz-perspective: $deg;
+    -ms-perspective: $deg;
+    -o-perspective: $deg;
+    perspective: $deg;
 }
 
 #flipbook .page-wrapper{
-    -webkit-perspective:1200px;
-    -moz-perspective:1200px;
-    -ms-perspective:1200px;
-    -o-perspective:1200px;
-    perspective:1200px;
+	@include perspective(1200px);
 }
 
 @media screen and (min-width: 950px) {
