@@ -92,6 +92,7 @@ h1,h2 {
 	line-height: 1.25em;
 	margin-top: 4em;
 	font-style: italic;
+	font-weight: 700;
 }
 
 
@@ -107,8 +108,10 @@ h1,h2 {
 	background-color: #FFF;
 	width: 100%;
 	margin-left: 0.75em;
-	font-size: 1em;
+	font-size: 1.5em;
+	font-style: italic;
 	border-radius: 0;
+	margin-top: -30px;
 }
 
 .buttonFlash {
@@ -119,7 +122,7 @@ h1,h2 {
 .revealButton:hover {
 	color: #FFF;
 	background-color: $primary-red;
-	font-weight: 700;
+	// font-weight: 700;
 }
 
 #submitButton {
@@ -143,21 +146,53 @@ h1,h2 {
 	margin-bottom: 3em;
 }
 
-#refreshButton {
-	float: right;
-	margin-top: 10em;
-	margin-right: 10em;
-	padding: 20px;
-	border-radius: 10px;
-	border: 2px dotted $primary-red;
-	background-color: #FFF;
+#innerStar {
+	padding-top: 1.5em;
 }
 
+.starburst {
+	display:block;
+	width:6em;
+	height:6em;
+	background: $primary-red;
+	-webkit-transform:rotate(-45deg);
+	-moz-transform:rotate(-45deg);
+	rotation:-45deg;
+	position:relative;
+	top:2em;
+	left:2em;
+	text-align:center;
+	text-decoration:none;
+	color:#FFF;
+}
+.starburst span {
+	display:block;
+	width:6em;
+	height:6em;
+	background: $primary-red;
+	-webkit-transform:rotate(22.5deg);
+	-moz-transform:rotate(22.5deg);
+	rotation:22.5deg;
+}
+
+#refreshButton {
+	font-weight: 500;
+	position: absolute;
+    margin-top: 200px;
+    margin-left: 4em;
+}
 #refreshButton:hover {
-	color: $primary-red;
-	font-style: italic;
+	text-decoration: none;
+	cursor: pointer;
+	color: #FFF;
 	font-weight: 700;
-	border: 2px solid $primary-red;
+	font-size: 1.1em;
+	//background: $secondary-red;
+}
+
+#oops {
+	margin-top: 250px;
+	visibility: hidden;
 }
 
 #spacer {
@@ -382,6 +417,13 @@ h1,h2 {
 	}
 }
 
+@media (max-width: 430px) {
+	#refreshButton {
+		float:left;
+		margin-left: 0;
+		margin-top: 300px;
+	}
+}
 
 #fixer {
 	background-color: white;

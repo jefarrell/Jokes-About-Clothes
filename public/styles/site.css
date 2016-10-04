@@ -5903,7 +5903,8 @@ h1, h2 {
   font-size: 1.5em;
   line-height: 1.25em;
   margin-top: 4em;
-  font-style: italic; }
+  font-style: italic;
+  font-weight: 700; }
 
 .page div {
   width: 75%;
@@ -5916,8 +5917,10 @@ h1, h2 {
   background-color: #FFF;
   width: 100%;
   margin-left: 0.75em;
-  font-size: 1em;
-  border-radius: 0; }
+  font-size: 1.5em;
+  font-style: italic;
+  border-radius: 0;
+  margin-top: -30px; }
 
 .buttonFlash {
   background-color: #EC0000;
@@ -5925,8 +5928,7 @@ h1, h2 {
 
 .revealButton:hover {
   color: #FFF;
-  background-color: #EC0000;
-  font-weight: 700; }
+  background-color: #EC0000; }
 
 #submitButton {
   margin-top: 1em;
@@ -5946,20 +5948,49 @@ h1, h2 {
 #jokeContainer h2 {
   margin-bottom: 3em; }
 
+#innerStar {
+  padding-top: 1.5em; }
+
+.starburst {
+  display: block;
+  width: 6em;
+  height: 6em;
+  background: #EC0000;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  rotation: -45deg;
+  position: relative;
+  top: 2em;
+  left: 2em;
+  text-align: center;
+  text-decoration: none;
+  color: #FFF; }
+
+.starburst span {
+  display: block;
+  width: 6em;
+  height: 6em;
+  background: #EC0000;
+  -webkit-transform: rotate(22.5deg);
+  -moz-transform: rotate(22.5deg);
+  rotation: 22.5deg; }
+
 #refreshButton {
-  float: right;
-  margin-top: 10em;
-  margin-right: 10em;
-  padding: 20px;
-  border-radius: 10px;
-  border: 2px dotted #EC0000;
-  background-color: #FFF; }
+  font-weight: 500;
+  position: absolute;
+  margin-top: 200px;
+  margin-left: 4em; }
 
 #refreshButton:hover {
-  color: #EC0000;
-  font-style: italic;
+  text-decoration: none;
+  cursor: pointer;
+  color: #FFF;
   font-weight: 700;
-  border: 2px solid #EC0000; }
+  font-size: 1.1em; }
+
+#oops {
+  margin-top: 250px;
+  visibility: hidden; }
 
 #spacer {
   margin-top: 300px;
@@ -6141,6 +6172,12 @@ h1, h2 {
   #refreshButton {
     float: left;
     margin-left: 0; } }
+
+@media (max-width: 430px) {
+  #refreshButton {
+    float: left;
+    margin-left: 0;
+    margin-top: 300px; } }
 
 #fixer {
   background-color: white;

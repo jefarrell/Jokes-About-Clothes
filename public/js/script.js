@@ -82,7 +82,7 @@ $(document).ready(function() {
 					)
 
 		$('.revealButton').click(function(e){
-			$(e.target).remove();
+			$(e.target).hide('fast');
 		});
 
 		return double
