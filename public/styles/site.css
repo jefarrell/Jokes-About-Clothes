@@ -5856,13 +5856,6 @@ h1, h2 {
 .container-fluid .jumbotron {
   border-radius: 0px; }
 
-.jumbotron {
-  width: 500px;
-  height: 400px;
-  background-color: #FFF;
-  border: 2px solid #4F4F4F;
-  padding: 0; }
-
 #contentwrap {
   padding: 0; }
 
@@ -5907,7 +5900,7 @@ h1, h2 {
   font-weight: 700; }
 
 .page div {
-  width: 75%;
+  width: 50%;
   margin-left: 5%;
   word-wrap: break-word;
   overflow: visible; }
@@ -5916,7 +5909,6 @@ h1, h2 {
   color: #EC0000;
   background-color: #FFF;
   width: 100%;
-  margin-left: 0.75em;
   font-size: 1.5em;
   font-style: italic;
   border-radius: 0;
@@ -5979,7 +5971,8 @@ h1, h2 {
   font-weight: 500;
   position: absolute;
   margin-top: 200px;
-  margin-left: 4em; }
+  margin-left: 4em;
+  z-index: 200; }
 
 #refreshButton:hover {
   text-decoration: none;
@@ -6037,110 +6030,24 @@ h1, h2 {
   transform: rotate3d(1, -1, 1, 10deg);
   position: absolute;
   z-index: 100;
-  display: inline-block; }
-
-/* Right side of paper */
-.right {
-  transform: skewY(45deg);
-  -webkit-transform: skewY(45deg);
-  -moz-transform: skewY(45deg);
-  width: 20px;
-  height: 400px;
-  background-color: #cecece;
   display: inline-block;
-  position: absolute;
-  float: right;
-  right: -21px;
-  top: 7px;
-  border: 2px solid #4F4F4F;
-  border-radius: 2px 0 0 0;
-  z-index: 100;
-  background-image: linear-gradient(-90deg, black 25%, transparent 25%, transparent 50%, black 50%, black 75%, transparent 75%, transparent);
-  background-size: 4px 4px; }
-
-/* Left side of paper */
-.left {
-  transform: skewX(45deg);
-  -webkit-transform: skewX(45deg);
-  -moz-transform: skewX(45deg);
-  width: 501px;
-  height: 20px;
-  display: inline-block;
-  position: absolute;
-  background-color: #cecece;
-  border: 2px solid #4F4F4F;
-  border-radius: 2px 0 2px 0;
-  left: 7px;
-  bottom: -21px;
-  z-index: 100;
-  background-image: linear-gradient(black 25%, transparent 25%, transparent 50%, black 50%, black 75%, transparent 75%, transparent);
-  background-size: 4px 4px; }
-
-#calBack {
-  margin: -4em 0 3em 12em;
-  background-color: pink;
-  -webkit-perspective: 1200px;
-  position: relative;
-  z-index: 0; }
-
-#calBackInner {
-  transform: rotate3d(1, -1, 1, 10deg);
-  -webkit-transform: rotate3d(1, -1, 1, 10deg);
-  -moz-transform: rotate3d(1, -1, 1, 10deg) scale(0.9999);
-  position: absolute;
-  z-index: 100;
-  display: inline-block;
-  width: 520px;
-  height: 470px;
-  background-color: #EC0000;
-  border: 2px solid #800000;
-  outline: 2px solid transparent;
-  border-radius: 4px 0 0 0;
-  z-index: 0;
-  -webkit-box-shadow: 5px 5px 5px 0px #2b2b2b;
-  -moz-box-shadow: 5px 5px 5px 0px #2b2b2b;
-  box-shadow: 5px 5px 5px 0px #2b2b2b; }
-
-#calBackRight {
-  transform: skewY(45deg);
-  -webkit-transform: skewY(45deg);
-  -moz-transform: skewY(45deg);
-  width: 3px;
-  height: 470px;
-  display: inline-block;
-  position: absolute;
-  float: right;
-  right: -6px;
-  top: 0;
-  background-color: #800000;
-  border: 2px solid #800000;
-  border-radius: 0 0 0 0; }
-
-#calBackLeft {
-  transform: skewX(45deg);
-  -webkit-transform: skewX(45deg);
-  -moz-transform: skewX(45deg);
-  width: 521px;
-  height: 3px;
-  display: inline-block;
-  position: absolute;
-  background-color: #800000;
-  border: 2px solid #800000;
-  border-radius: 0 0 2px 0;
-  left: 0;
-  bottom: -6px; }
-
-/* TurnJS stuff */
-#flipbook {
   width: 500px;
   height: 400px;
-  border: 1px solid black;
+  background-color: #FFF;
+  border: 2px solid rgba(79, 79, 79, 0);
+  padding: 0; }
+
+/* Right side of paper */
+/* TurnJS stuff */
+#flipbook {
+  width: 36em !important;
+  height: 28.5em !important;
   z-index: 101;
   overflow: visible !important; }
 
 #flipbook .page {
-  width: 500px;
-  height: 400px;
+  width: 36em !important;
+  height: 28.5em !important;
   background: white;
   line-height: 300px;
   font-size: 20px;
@@ -6171,7 +6078,11 @@ h1, h2 {
 @media (max-width: 950px) {
   #refreshButton {
     float: left;
-    margin-left: 0; } }
+    margin-left: 0; }
+  #flipbook .page, .page-wrapper {
+    width: 34em !important; }
+  .jumbotron {
+    width: 490px; } }
 
 @media (max-width: 430px) {
   #refreshButton {
@@ -6188,3 +6099,10 @@ h1, h2 {
   top: 0;
   left: 0;
   position: fixed; }
+
+#vector {
+  background-image: url(/images/calVector.svg);
+  background-repeat: no-repeat;
+  height: 560px;
+  margin-left: 8.8em;
+  margin-top: -6em; }
